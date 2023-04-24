@@ -9,6 +9,9 @@ function intergest_theme_setup() {
 	register_nav_menus(
 		array(
 			'primary' => __( 'Primary Menu', 'tailpress' ),
+			'secondary' => __( 'Secondary Menu', 'tailpress'),
+			'services' => __( 'Services Menu', 'tailpress'),
+			'contact' => __( 'Contact Menu', 'tailpress'),
 		)
 	);
 
@@ -107,3 +110,128 @@ function intergest_theme_nav_menu_add_submenu_class( $classes, $args, $depth ) {
 }
 
 add_filter( 'nav_menu_submenu_css_class', 'intergest_theme_nav_menu_add_submenu_class', 10, 3 );
+
+function intergest_theme_social($wp_customize) {
+
+	$wp_customize->add_section('intergest-theme-social-section', array(
+		'title' => 'Social Media'
+		));
+
+	$wp_customize->add_setting('intergest-theme-social-li', array(
+
+		));
+
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'intergest-theme-social-li-control', array(
+		'label' => 'Linkedin link',
+		'section' => 'intergest-theme-social-section',
+		'settings' => 'intergest-theme-social-li'
+		)));
+
+	$wp_customize->add_setting('intergest-theme-social-yt', array(
+
+		));
+
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'intergest-theme-social-yt-control', array(
+		'label' => 'Youtube link',
+		'section' => 'intergest-theme-social-section',
+		'settings' => 'intergest-theme-social-yt'
+		)));
+
+	$wp_customize->add_setting('intergest-theme-social-it', array(
+
+		));
+
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'intergest-theme-social-it-control', array(
+		'label' => 'Instagram link',
+		'section' => 'intergest-theme-social-section',
+		'settings' => 'intergest-theme-social-it'
+		)));
+}
+
+add_action('customize_register','intergest_theme_social');
+
+function intergest_theme_company_details($wp_customize) {
+
+	$wp_customize->add_section('intergest-theme-company-details', array(
+		'title' => 'Company Details'
+		));
+
+	$wp_customize->add_setting('intergest-theme-company-details-name', array(
+
+		));
+
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'intergest-theme-company-details-name-control', array(
+		'label' => 'Name',
+		'section' => 'intergest-theme-company-details',
+		'settings' => 'intergest-theme-company-details-name'
+		)));
+
+	$wp_customize->add_setting('intergest-theme-company-details-address-1', array(
+
+		));
+
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'intergest-theme-company-details-address-1-control', array(
+		'label' => 'Address',
+		'section' => 'intergest-theme-company-details',
+		'settings' => 'intergest-theme-company-details-address-1'
+		)));
+
+	$wp_customize->add_setting('intergest-theme-company-details-address-2', array(
+
+		));
+
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'intergest-theme-company-details-address-2-control', array(
+		'label' => 'Country, Zip code, City',
+		'section' => 'intergest-theme-company-details',
+		'settings' => 'intergest-theme-company-details-address-2'
+		)));
+
+	$wp_customize->add_setting('intergest-theme-company-details-tel', array(
+
+		));
+
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'intergest-theme-company-details-tel-control', array(
+		'label' => 'Telephone number',
+		'section' => 'intergest-theme-company-details',
+		'settings' => 'intergest-theme-company-details-tel'
+		)));
+
+	$wp_customize->add_setting('intergest-theme-company-details-fax', array(
+
+		));
+
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'intergest-theme-company-details-fax-control', array(
+		'label' => 'Fax number',
+		'section' => 'intergest-theme-company-details',
+		'settings' => 'intergest-theme-company-details-fax'
+		)));
+
+	$wp_customize->add_setting('intergest-theme-company-details-mail', array(
+
+		));
+
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'intergest-theme-company-details-mail-control', array(
+		'label' => 'Email',
+		'section' => 'intergest-theme-company-details',
+		'settings' => 'intergest-theme-company-details-mail'
+		)));
+}
+
+add_action('customize_register','intergest_theme_company_details');
+
+function intergest_theme_language_switcher_widget_area(){
+
+	register_sidebar(
+		array(
+			'before_title' => '',
+			'after_title' => '',
+			'before_widget' => '',
+			'after_widget' => '',
+			'name' => 'Navbar Language Switcher Area',
+			'id' => 'language-switcher',
+			'description' => 'Navbar Language Switcher Widget Area'
+		)
+	);
+}
+
+add_action('widgets_init', 'intergest_theme_language_switcher_widget_area');

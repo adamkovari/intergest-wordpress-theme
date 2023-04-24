@@ -3,19 +3,44 @@
   "settings": {
     "layout": {
       "contentSize": "960px",
-      "wideSize": "1280px"
+      "wideSize": "1440px"
     },
     "color": {
       "palette": [
         {
           "name": "Primary",
           "slug": "primary",
-          "color": "#0EA5E9"
+          "color": "#F9B45C"
+        },
+        {
+          "name": "Text1",
+          "slug": "text1",
+          "color": "#333333"
+        },
+        {
+          "name": "Text2",
+          "slug": "text2",
+          "color": "#444545"
+        },
+        {
+          "name": "Orange",
+          "slug": "orange",
+          "color": "#F9B45C"
+        },
+        {
+          "name": "Gray1",
+          "slug": "gray1",
+          "color": "#74797C"
+        },
+        {
+          "name": "Gray2",
+          "slug": "gray2",
+          "color": "#A1A5A7"
         },
         {
           "name": "Secondary",
           "slug": "secondary",
-          "color": "#14B8A6"
+          "color": "#74797C"
         },
         {
           "name": "Dark",

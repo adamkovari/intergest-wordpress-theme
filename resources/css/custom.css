@@ -40,3 +40,9 @@ article > *:not(.entry-content),
         }
     }
 }
+
+.pll-switcher-select {
+    appearance: none;
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -6,6 +6,10 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 	<?php wp_head(); ?>
 </head>
 
@@ -17,12 +21,67 @@
 
 	<?php do_action( 'intergest_theme_header' ); ?>
 
-	<header>
+	<header class="border-b">
 
-		<div class="mx-auto container">
-			<div class="lg:flex lg:justify-between lg:items-center border-b py-6">
+		<div class="w-11/12 lg:w-full mx-auto">
+			<div class="lg:flex lg:justify-around lg:items-center py-6">
+
+				<div class="flex flex-col">
+					<div class="hidden lg:flex flex gap-x-4 w-36 justify-between">
+
+						<div class="">
+							<?php if(get_theme_mod('intergest-theme-social-li')) { ?>
+								<a href="<?php echo get_theme_mod('intergest-theme-social-li') ?>">
+									<img src="<?php echo get_template_directory_uri() ?>/resources/images/social/li.svg" />
+								</a>
+							<?php } ?>
+						</div>
+
+						<div class="">
+							<?php if(get_theme_mod('intergest-theme-social-yt')) { ?>
+							<a href="<?php echo get_theme_mod('intergest-theme-social-yt') ?>">
+								<img src="<?php echo get_template_directory_uri() ?>/resources/images/social/yt.svg" />
+							</a>
+							<?php } ?>
+						</div>
+
+						<div class="">
+							<?php if(get_theme_mod('intergest-theme-social-it')) { ?>
+								<a href="<?php echo get_theme_mod('intergest-theme-social-it') ?>">
+									<img src="<?php echo get_template_directory_uri() ?>/resources/images/social/ig.svg" />
+								</a>
+							<?php } ?>
+						</div>
+
+						<div class="">
+							<?php
+								dynamic_sidebar('language-switcher')
+							?>
+						</div>
+					</div>
+
+					<div class="hidden lg:block w-36 mt-1 mb-3">
+						<hr class="border-text1 border-[1px]" />
+					</div>
+
+					<div class="">
+						<?php
+						wp_nav_menu(
+							array(
+								'container_id'    => 'primary-menu',
+								'container_class' => 'hidden bg-gray-100 mt-4 p-4 lg:mt-0 lg:p-0 lg:bg-transparent lg:block',
+								'menu_class'      => 'lg:flex lg:-mx-4',
+								'theme_location'  => 'primary',
+								'li_class'        => 'lg:mx-3 text-lg uppercase hover:text-orange',
+								'fallback_cb'     => false,
+							)
+						);
+						?>
+					</div>
+				</div>
+
 				<div class="flex justify-between items-center">
-					<div>
+					<div class="w-36">
 						<?php if ( has_custom_logo() ) { ?>
                             <?php the_custom_logo(); ?>
 						<?php } else { ?>
@@ -51,19 +110,6 @@
 						</a>
 					</div>
 				</div>
-
-				<?php
-				wp_nav_menu(
-					array(
-						'container_id'    => 'primary-menu',
-						'container_class' => 'hidden bg-gray-100 mt-4 p-4 lg:mt-0 lg:p-0 lg:bg-transparent lg:block',
-						'menu_class'      => 'lg:flex lg:-mx-4',
-						'theme_location'  => 'primary',
-						'li_class'        => 'lg:mx-4',
-						'fallback_cb'     => false,
-					)
-				);
-				?>
 			</div>
 		</div>
 	</header>
@@ -71,7 +117,9 @@
 	<div id="content" class="site-content flex-grow">
 
 		<?php if ( is_front_page() ) { ?>
-			<!-- Start introduction -->
+
+	<!--
+
 			<div class="container mx-auto">
 				<div class="px-12 py-16 my-12 rounded-xl bg-gradient-to-r from-blue-50 from-10% via-sky-100 via-30% to-blue-200 to-90%">
                     <div class="mx-auto max-w-screen-md">
@@ -86,7 +134,7 @@
                     </div>
                 </div>
 			</div>
-			<!-- End introduction -->
+			-->
 		<?php } ?>
 
 		<?php do_action( 'intergest_theme_content_start' ); ?>
